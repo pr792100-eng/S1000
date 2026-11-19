@@ -1,0 +1,19 @@
+Serviços:
+  Windows:
+    imagem: dockurr/windows
+    nome_do_container: janelas
+    ambiente:
+      VERSÃO: "11"
+    dispositivos:
+      - /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - ADMINISTRADOR DE REDE
+    portas:
+      - "8006:8006"
+      - "3389:3389/tcp"
+      - "3389:3389/udp"
+    volumes:
+      - ./windows_data:/storage
+    reiniciar: sempre
+    stop_grace_period: 2m
